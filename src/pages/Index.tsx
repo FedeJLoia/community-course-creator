@@ -3,8 +3,20 @@ import { Section } from "@/components/Section";
 import { TeacherForm } from "@/components/TeacherForm";
 import { TopicCard } from "@/components/TopicCard";
 import { Card } from "@/components/ui/card";
+import { useEffect, useState } from "react";
 
 const Index = () => {
+  const [currentArea, setCurrentArea] = useState(0);
+  const areas = ["Paid Media", "Estrategia SEO", "Diseño Gráfico"];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentArea((current) => (current + 1) % areas.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-secondary">
       {/* Hero Section */}
@@ -16,7 +28,10 @@ const Index = () => {
           Comparte tus Conocimientos con la Comunidad Julius
         </h1>
         <p className="text-lg text-muted-foreground max-w-2xl mb-8 fade-up">
-          ¿Tienes un alto nivel de conocimiento y experiencia en un área específica?
+          ¿Tienes un alto nivel de conocimiento y experiencia en{" "}
+          <span className="inline-block min-w-[140px] font-medium text-foreground transition-all duration-500">
+            {areas[currentArea]}
+          </span>?
           ¿Te gustaría transmitirla a otros profesionistas?
         </p>
         <p className="text-lg font-medium fade-up">
