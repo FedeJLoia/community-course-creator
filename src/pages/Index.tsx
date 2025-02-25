@@ -31,7 +31,7 @@ const Index = () => {
         </div>
         
         {/* Logo */}
-        <div className="absolute top-8 right-8 z-20">
+        <div className="absolute top-8 left-8 z-20">
           <img 
             src="/lovable-uploads/61995eaa-e089-42f0-a92b-f6390e001e8a.png" 
             alt="Julius Logo" 
