@@ -31,7 +31,7 @@ const Index = () => {
         </div>
         
         {/* Logo */}
-        <div className="absolute top-8 left-8 z-20">
+        <div className="absolute top-8 right-8 z-20">
           <img 
             src="/lovable-uploads/61995eaa-e089-42f0-a92b-f6390e001e8a.png" 
             alt="Julius Logo" 
@@ -53,7 +53,7 @@ const Index = () => {
             </span>?
             ¿Te gustaría transmitirla a otros profesionistas?
           </p>
-          <p className="text-lg text-white fade-up mx-auto max-w-2xl">
+          <p className="text-lg font-medium text-white fade-up mx-auto max-w-2xl">
             Te invitamos a impartir un curso de 3 a 4 horas, virtual y/o presencial,
             para los miembros de la comunidad Julius.
           </p>
