@@ -1,4 +1,3 @@
-
 import { Section } from "@/components/Section";
 import { TeacherForm } from "@/components/TeacherForm";
 import { TopicCard } from "@/components/TopicCard";
@@ -96,19 +95,23 @@ const Index = () => {
       </Section>
 
       {/* Why You Section */}
-      <Section>
+      <Section className="bg-black">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-8 fade-up text-gradient">¿Por Qué Tú?</h2>
-          <p className="text-lg text-white/80 mb-6 fade-up">
-            Tu experiencia y conocimiento son únicos. La comunidad Julius valora la
-            diversidad de perspectivas y la experiencia práctica que profesionales
-            como tú pueden aportar.
-          </p>
-          <p className="text-lg text-white fade-up">
-            Ser instructor en Julius no solo te permite compartir tu conocimiento,
-            sino también expandir tu red profesional y dejar una huella duradera
-            en otros profesionales.
-          </p>
+          <h2 className="text-4xl font-bold mb-10 fade-up text-gradient bg-gradient-to-r from-primary to-primary/80">
+            ¿Por Qué Tú?
+          </h2>
+          <div className="space-y-8">
+            <p className="text-xl text-white mb-6 fade-up leading-relaxed">
+              Tu experiencia y conocimiento son únicos. La comunidad Julius valora la
+              diversidad de perspectivas y la experiencia práctica que profesionales
+              como tú pueden aportar.
+            </p>
+            <p className="text-xl text-white/90 fade-up leading-relaxed">
+              Ser instructor en Julius no solo te permite compartir tu conocimiento,
+              sino también expandir tu red profesional y dejar una huella duradera
+              en otros profesionales.
+            </p>
+          </div>
         </div>
       </Section>
 
