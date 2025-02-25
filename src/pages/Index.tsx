@@ -1,3 +1,4 @@
+
 import { Section } from "@/components/Section";
 import { TeacherForm } from "@/components/TeacherForm";
 import { TopicCard } from "@/components/TopicCard";
@@ -28,21 +29,31 @@ const Index = () => {
         >
           <div className="absolute inset-0 bg-background/80 backdrop-blur-sm"></div>
         </div>
-        <div className="relative z-10">
-          <span className="text-sm font-medium text-primary uppercase tracking-wider mb-4 fade-up">
+        
+        {/* Logo */}
+        <div className="absolute top-8 right-8 z-20">
+          <img 
+            src="/lovable-uploads/61995eaa-e089-42f0-a92b-f6390e001e8a.png" 
+            alt="Julius Logo" 
+            className="h-16 w-auto"
+          />
+        </div>
+
+        <div className="relative z-10 max-w-4xl mx-auto text-center px-4">
+          <span className="text-sm font-medium text-primary uppercase tracking-wider mb-4 block fade-up">
             Comunidad Julius
           </span>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 max-w-3xl fade-up text-gradient">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 fade-up text-gradient">
             Comparte tus Conocimientos con la Comunidad Julius
           </h1>
-          <p className="text-lg text-white/80 max-w-2xl mb-8 fade-up">
+          <p className="text-lg text-white/80 mb-8 fade-up mx-auto max-w-2xl">
             ¿Tienes un alto nivel de conocimiento y experiencia en{" "}
             <span className="inline-block min-w-[140px] font-medium text-primary transition-all duration-500">
               {areas[currentArea]}
             </span>?
             ¿Te gustaría transmitirla a otros profesionistas?
           </p>
-          <p className="text-lg font-medium text-white fade-up">
+          <p className="text-lg font-medium text-white fade-up mx-auto max-w-2xl">
             Te invitamos a impartir un curso de 3 a 4 horas, virtual y/o presencial,
             para los miembros de la comunidad Julius.
           </p>
