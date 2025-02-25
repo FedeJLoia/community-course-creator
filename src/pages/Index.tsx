@@ -1,4 +1,3 @@
-
 import { Section } from "@/components/Section";
 import { TeacherForm } from "@/components/TeacherForm";
 import { TopicCard } from "@/components/TopicCard";
@@ -20,24 +19,34 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <Section className="min-h-[90vh] flex flex-col justify-center items-center text-center">
-        <span className="text-sm font-medium text-primary uppercase tracking-wider mb-4 fade-up">
-          Comunidad Julius
-        </span>
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 max-w-3xl fade-up text-gradient">
-          Comparte tus Conocimientos con la Comunidad Julius
-        </h1>
-        <p className="text-lg text-white/80 max-w-2xl mb-8 fade-up">
-          ¿Tienes un alto nivel de conocimiento y experiencia en{" "}
-          <span className="inline-block min-w-[140px] font-medium text-primary transition-all duration-500">
-            {areas[currentArea]}
-          </span>?
-          ¿Te gustaría transmitirla a otros profesionistas?
-        </p>
-        <p className="text-lg font-medium text-white fade-up">
-          Te invitamos a impartir un curso de 3 a 4 horas, virtual y/o presencial,
-          para los miembros de la comunidad Julius.
-        </p>
+      <Section className="min-h-[90vh] flex flex-col justify-center items-center text-center relative">
+        <div 
+          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+          style={{ 
+            backgroundImage: 'url("/lovable-uploads/3fd1e264-1a63-42a6-b6d8-db975aa19508.png")',
+          }}
+        >
+          <div className="absolute inset-0 bg-background/80 backdrop-blur-sm"></div>
+        </div>
+        <div className="relative z-10">
+          <span className="text-sm font-medium text-primary uppercase tracking-wider mb-4 fade-up">
+            Comunidad Julius
+          </span>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 max-w-3xl fade-up text-gradient">
+            Comparte tus Conocimientos con la Comunidad Julius
+          </h1>
+          <p className="text-lg text-white/80 max-w-2xl mb-8 fade-up">
+            ¿Tienes un alto nivel de conocimiento y experiencia en{" "}
+            <span className="inline-block min-w-[140px] font-medium text-primary transition-all duration-500">
+              {areas[currentArea]}
+            </span>?
+            ¿Te gustaría transmitirla a otros profesionistas?
+          </p>
+          <p className="text-lg font-medium text-white fade-up">
+            Te invitamos a impartir un curso de 3 a 4 horas, virtual y/o presencial,
+            para los miembros de la comunidad Julius.
+          </p>
+        </div>
       </Section>
 
       {/* Community Section */}
