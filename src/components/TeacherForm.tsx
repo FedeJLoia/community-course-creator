@@ -13,6 +13,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { toast } from "sonner";
 
 const formSchema = z.object({
@@ -22,17 +23,21 @@ const formSchema = z.object({
   topics: z.string().min(2, "Por favor describe los temas"),
   availability: z.string().min(2, "Por favor indica tu disponibilidad"),
   compensation: z.string().min(2, "Por favor indica tus honorarios esperados"),
-  canTravel: z.string().min(2, "Por favor indica tu disponibilidad para viajar"),
+  canTravel: z.enum(["si", "no", "talvez"], {
+    required_error: "Por favor selecciona una opción",
+  }),
 });
 
 export const TeacherForm = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
+    defaultValues: {
+      canTravel: "talvez",
+    },
   });
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      // Here you would integrate with HubSpot's API
       console.log("Form submitted:", values);
       toast.success("¡Gracias por tu propuesta! Nos pondremos en contacto pronto.");
       form.reset();
@@ -141,7 +146,30 @@ export const TeacherForm = () => {
             <FormItem>
               <FormLabel>Disponibilidad para Viajar</FormLabel>
               <FormControl>
-                <Input placeholder="¿Podrías viajar para sesiones presenciales?" {...field} />
+                <RadioGroup
+                  onValueChange={field.onChange}
+                  defaultValue={field.value}
+                  className="flex flex-col space-y-1"
+                >
+                  <FormItem className="flex items-center space-x-3 space-y-0">
+                    <FormControl>
+                      <RadioGroupItem value="si" />
+                    </FormControl>
+                    <FormLabel className="font-normal">Sí</FormLabel>
+                  </FormItem>
+                  <FormItem className="flex items-center space-x-3 space-y-0">
+                    <FormControl>
+                      <RadioGroupItem value="no" />
+                    </FormControl>
+                    <FormLabel className="font-normal">No</FormLabel>
+                  </FormItem>
+                  <FormItem className="flex items-center space-x-3 space-y-0">
+                    <FormControl>
+                      <RadioGroupItem value="talvez" />
+                    </FormControl>
+                    <FormLabel className="font-normal">Tal vez</FormLabel>
+                  </FormItem>
+                </RadioGroup>
               </FormControl>
               <FormMessage />
             </FormItem>

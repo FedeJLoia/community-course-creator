@@ -1,3 +1,4 @@
+
 import { Section } from "@/components/Section";
 import { TeacherForm } from "@/components/TeacherForm";
 import { TopicCard } from "@/components/TopicCard";
@@ -6,15 +7,30 @@ import { useEffect, useState } from "react";
 
 const Index = () => {
   const [currentArea, setCurrentArea] = useState(0);
-  const areas = ["Paid Media", "Estrategia SEO", "Diseño Gráfico"];
-
+  const [currentText, setCurrentText] = useState("");
+  const areas = ["Paid Media", "Estrategias", "Posicionamiento"];
+  
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentArea((current) => (current + 1) % areas.length);
-    }, 3000);
+    let timeoutId: NodeJS.Timeout;
+    const targetText = areas[currentArea];
+    
+    if (currentText !== targetText) {
+      timeoutId = setTimeout(() => {
+        setCurrentText(current => {
+          if (current === targetText) return current;
+          const nextChar = targetText.slice(0, current.length + 1);
+          return nextChar;
+        });
+      }, 100);
+    } else {
+      timeoutId = setTimeout(() => {
+        setCurrentArea((current) => (current + 1) % areas.length);
+        setCurrentText("");
+      }, 2000);
+    }
 
-    return () => clearInterval(interval);
-  }, []);
+    return () => clearTimeout(timeoutId);
+  }, [currentArea, currentText]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -32,7 +48,7 @@ const Index = () => {
         {/* Logo */}
         <div className="absolute top-8 left-8 z-20">
           <img 
-            src="/lovable-uploads/61995eaa-e089-42f0-a92b-f6390e001e8a.png" 
+            src="/lovable-uploads/90950888-f272-478a-a3a0-b2ae527899d0.png"
             alt="Julius Logo" 
             className="h-16 w-auto"
           />
@@ -48,7 +64,7 @@ const Index = () => {
           <p className="text-lg text-white/80 mb-8 fade-up mx-auto max-w-2xl">
             ¿Tienes un alto nivel de conocimiento y experiencia en{" "}
             <span className="inline-block min-w-[140px] font-medium text-primary transition-all duration-500">
-              {areas[currentArea]}
+              {currentText}
             </span>?
             ¿Te gustaría transmitirla a otros profesionistas?
           </p>
@@ -61,36 +77,15 @@ const Index = () => {
 
       {/* Community Section */}
       <Section className="bg-secondary">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold mb-8 text-center fade-up text-gradient">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-8 fade-up text-gradient">
             ¿Quiénes forman parte de la comunidad Julius?
           </h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            <Card className="p-8 bg-white/10 backdrop-blur-md border-white/20 hover:bg-white/20 transition-colors duration-300 fade-up">
-              <h3 className="text-xl font-semibold mb-4 text-primary">Colaboradores Actuales</h3>
-              <p className="text-white/80">
-                Profesionales activos que comparten su experiencia y conocimiento.
-              </p>
-            </Card>
-            <Card className="p-8 bg-white/10 backdrop-blur-md border-white/20 hover:bg-white/20 transition-colors duration-300 fade-up">
-              <h3 className="text-xl font-semibold mb-4 text-primary">Ex-Colaboradores</h3>
-              <p className="text-white/80">
-                Personas que han dejado su huella en nuestra comunidad.
-              </p>
-            </Card>
-            <Card className="p-8 bg-white/10 backdrop-blur-md border-white/20 hover:bg-white/20 transition-colors duration-300 fade-up">
-              <h3 className="text-xl font-semibold mb-4 text-primary">Clientes</h3>
-              <p className="text-white/80">
-                Partners que confían en nuestros servicios y expertise.
-              </p>
-            </Card>
-            <Card className="p-8 bg-white/10 backdrop-blur-md border-white/20 hover:bg-white/20 transition-colors duration-300 fade-up">
-              <h3 className="text-xl font-semibold mb-4 text-primary">Amigos de Julius</h3>
-              <p className="text-white/80">
-                Personas cercanas que comparten nuestros valores y visión.
-              </p>
-            </Card>
-          </div>
+          <p className="text-lg text-white/90 fade-up leading-relaxed max-w-3xl mx-auto">
+            Nos referimos a la comunidad Julius como los colaboradores actuales y pasados, 
+            clientes y otras personas que son cercanas a Julius. Es un compromiso de Julius 
+            mantener una mejor comunicación y generar más valor a toda su comunidad.
+          </p>
         </div>
       </Section>
 
@@ -118,26 +113,34 @@ const Index = () => {
       {/* Course Dynamics */}
       <Section className="bg-secondary">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold mb-8 text-center fade-up text-gradient">
-            ¿Cómo funcionan los cursos?
+          <h2 className="text-3xl font-bold mb-4 text-center fade-up text-gradient">
+            Dinámica del curso
           </h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            <TopicCard
-              title="Flexibilidad"
-              description="Adapta la estructura del curso según tu experiencia y el tema a impartir."
-            />
-            <TopicCard
-              title="Duración"
-              description="3-4 horas distribuidas en una o varias sesiones."
-            />
-            <TopicCard
-              title="Modalidad"
-              description="Virtual, presencial o híbrida, según tu preferencia y disponibilidad."
-            />
-            <TopicCard
-              title="Nivel"
-              description="Enfoque en contenido intermedio y avanzado para maximizar el valor."
-            />
+          <h3 className="text-xl font-semibold mb-8 text-center fade-up text-white/90">
+            Cómo funcionan los cursos
+          </h3>
+          <div className="space-y-6 text-white/90 text-lg fade-up">
+            <p>
+              Puedes diseñar tu curso libremente, de acuerdo con tu estilo.
+            </p>
+            <p>
+              El objetivo es crear un espacio donde se promueva el aprendizaje, la discusión 
+              activa y la aplicación práctica de los conocimientos.
+            </p>
+            <p>
+              Visualizamos en bloques de 1 a 2 horas (con un total de 3 a 4 horas), para 
+              que no sea cansado para ponentes y participantes.
+            </p>
+            <p>
+              Tienes la opción de proponer un curso diseñado para principiantes, o para 
+              personas con conocimientos intermedios o avanzados. Dado el perfil de nuestra 
+              comunidad, queremos dar prioridad a los cursos intermedios y avanzados.
+            </p>
+            <p>
+              Los cursos podrían ser virtuales, presenciales o híbridos (presenciales para 
+              algunas personas y virtuales para los que no puedan asistir). También buscaremos 
+              grabar los cursos para las personas que no puedan empatar sus horarios.
+            </p>
           </div>
         </div>
       </Section>
@@ -148,59 +151,50 @@ const Index = () => {
           <h2 className="text-3xl font-bold mb-8 text-center fade-up text-gradient">
             Temas Prioritarios
           </h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            <TopicCard
-              title="Marketing Digital"
-              description="SEO, SEM, Redes Sociales, Email Marketing"
-            />
-            <TopicCard
-              title="Analítica"
-              description="Data Analysis, Business Intelligence, Visualización"
-            />
-            <TopicCard
-              title="IA Aplicada"
-              description="Machine Learning, NLP, Computer Vision"
-            />
-            <TopicCard
-              title="Productividad"
-              description="Gestión del tiempo, Metodologías ágiles"
-            />
-            <TopicCard
-              title="Desarrollo Web"
-              description="Frontend, Backend, Full Stack"
-            />
-            <TopicCard
-              title="Soft Skills"
-              description="Liderazgo, Comunicación, Trabajo en equipo"
-            />
-          </div>
-        </div>
-      </Section>
-
-      {/* Compensation */}
-      <Section className="bg-secondary">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-8 fade-up text-gradient">Compensación</h2>
-          <p className="text-lg text-white/80 mb-6 fade-up">
-            Valoramos tu tiempo y experiencia. La compensación se acuerda
-            directamente contigo, considerando el tema, formato y duración del curso.
+          <p className="text-lg text-white/90 mb-8 text-center">
+            Aunque estamos abiertos a explorar ideas, hay algunas categorías de temas que quisiéramos priorizar. 
+            Por ejemplo:
           </p>
-          <p className="text-lg text-white fade-up">
-            Tú propones los honorarios que consideres justos por compartir tu
-            conocimiento con la comunidad.
-          </p>
+          <ul className="space-y-4 text-white/90">
+            <li className="fade-up p-4 glass hover:bg-white/20 transition-colors duration-300">
+              Estrategias de generación digital de demanda
+            </li>
+            <li className="fade-up p-4 glass hover:bg-white/20 transition-colors duration-300">
+              Desarrollo de marcas a través de canales digitales
+            </li>
+            <li className="fade-up p-4 glass hover:bg-white/20 transition-colors duration-300">
+              Paid media avanzado
+            </li>
+            <li className="fade-up p-4 glass hover:bg-white/20 transition-colors duration-300">
+              Analítica digital intermedia y avanzada
+            </li>
+            <li className="fade-up p-4 glass hover:bg-white/20 transition-colors duration-300">
+              Aplicaciones prácticas, intermedias y avanzadas, de la inteligencia artificial en algún área de la mercadotecnia digital
+            </li>
+            <li className="fade-up p-4 glass hover:bg-white/20 transition-colors duration-300">
+              Técnicas de organización y productividad personal
+            </li>
+          </ul>
         </div>
       </Section>
 
       {/* Registration Form */}
-      <Section>
-        <div className="max-w-2xl mx-auto">
-          <h2 className="text-3xl font-bold mb-8 text-center fade-up text-gradient">
-            ¿Te Animas a impartir un Curso?
-          </h2>
-          <Card className="p-8 bg-white/10 backdrop-blur-md border-white/20 fade-up">
-            <TeacherForm />
-          </Card>
+      <Section className="bg-secondary">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 items-start">
+            <div className="text-left">
+              <h2 className="text-3xl font-bold mb-6 fade-up text-gradient">
+                ¿Te animas a impartir un curso?
+              </h2>
+              <p className="text-lg text-white/90 fade-up leading-relaxed">
+                Si te interesa impartir un curso completa el formulario a continuación 
+                para enviarnos tu propuesta.
+              </p>
+            </div>
+            <Card className="p-8 bg-white/10 backdrop-blur-md border-white/20 fade-up">
+              <TeacherForm />
+            </Card>
+          </div>
         </div>
       </Section>
     </div>
