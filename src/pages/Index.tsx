@@ -33,16 +33,16 @@ const Index = () => {
   }, [currentArea, currentText]);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-secondary text-center">
       {/* Hero Section */}
-      <Section className="min-h-[90vh] flex flex-col justify-center items-center text-center relative">
+      <Section className="min-h-[90vh] flex flex-col justify-center items-center relative">
         <div 
           className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
           style={{ 
-            backgroundImage: 'url("/lovable-uploads/3fd1e264-1a63-42a6-b6d8-db975aa19508.png")',
+            backgroundImage: 'url("/lovable-uploads/3fd1e264-1a63-42a6-b8-db975aa19508.png")',
           }}
         >
-          <div className="absolute inset-0 bg-background/80 backdrop-blur-sm"></div>
+          <div className="absolute inset-0 bg-secondary/90 backdrop-blur-sm"></div>
         </div>
         
         {/* Logo */}
@@ -54,18 +54,19 @@ const Index = () => {
           />
         </div>
 
-        <div className="relative z-10 max-w-4xl mx-auto text-center px-4">
+        <div className="relative z-10 max-w-4xl mx-auto px-4">
           <span className="text-sm font-medium text-primary uppercase tracking-wider mb-4 block fade-up">
             Comunidad Julius
           </span>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 fade-up text-gradient">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 fade-up bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">
             Comparte tus Conocimientos con la Comunidad Julius
           </h1>
-          <p className="text-lg text-white/80 mb-8 fade-up mx-auto max-w-2xl">
-            ¿Tienes un alto nivel de conocimiento y experiencia en{" "}
-            <span className="inline-block min-w-[140px] font-medium text-primary transition-all duration-500">
+          <p className="text-lg text-white/90 mb-8 fade-up mx-auto max-w-2xl">
+            ¿Tienes un alto nivel de conocimiento y experiencia en
+            <span className="inline-block text-primary-light font-medium mx-2 min-w-0 transition-all duration-500">
               {currentText}
-            </span>?
+            </span>
+            ?
             ¿Te gustaría transmitirla a otros profesionistas?
           </p>
           <p className="text-lg font-medium text-white fade-up mx-auto max-w-2xl">
@@ -77,8 +78,8 @@ const Index = () => {
 
       {/* Community Section */}
       <Section className="bg-secondary">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-8 fade-up text-gradient">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold mb-8 fade-up bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">
             ¿Quiénes forman parte de la comunidad Julius?
           </h2>
           <p className="text-lg text-white/90 fade-up leading-relaxed max-w-3xl mx-auto">
@@ -91,8 +92,8 @@ const Index = () => {
 
       {/* Why You Section */}
       <Section className="bg-black">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-10 fade-up text-gradient bg-gradient-to-r from-primary to-primary/80">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-4xl font-bold mb-10 fade-up bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">
             ¿Por Qué Tú?
           </h2>
           <div className="space-y-8">
@@ -113,10 +114,10 @@ const Index = () => {
       {/* Course Dynamics */}
       <Section className="bg-secondary">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold mb-4 text-center fade-up text-gradient">
+          <h2 className="text-3xl font-bold mb-4 fade-up bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">
             Dinámica del curso
           </h2>
-          <h3 className="text-xl font-semibold mb-8 text-center fade-up text-white/90">
+          <h3 className="text-xl font-semibold mb-8 fade-up text-primary-light">
             Cómo funcionan los cursos
           </h3>
           <div className="space-y-6 text-white/90 text-lg fade-up">
@@ -148,30 +149,30 @@ const Index = () => {
       {/* Priority Topics */}
       <Section>
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold mb-8 text-center fade-up text-gradient">
+          <h2 className="text-3xl font-bold mb-8 fade-up bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">
             Temas Prioritarios
           </h2>
-          <p className="text-lg text-white/90 mb-8 text-center">
+          <p className="text-lg text-white/90 mb-8">
             Aunque estamos abiertos a explorar ideas, hay algunas categorías de temas que quisiéramos priorizar. 
             Por ejemplo:
           </p>
           <ul className="space-y-4 text-white/90">
-            <li className="fade-up p-4 glass hover:bg-white/20 transition-colors duration-300">
+            <li className="fade-up p-4 glass hover:bg-white/10 transition-colors duration-300">
               Estrategias de generación digital de demanda
             </li>
-            <li className="fade-up p-4 glass hover:bg-white/20 transition-colors duration-300">
+            <li className="fade-up p-4 glass hover:bg-white/10 transition-colors duration-300">
               Desarrollo de marcas a través de canales digitales
             </li>
-            <li className="fade-up p-4 glass hover:bg-white/20 transition-colors duration-300">
+            <li className="fade-up p-4 glass hover:bg-white/10 transition-colors duration-300">
               Paid media avanzado
             </li>
-            <li className="fade-up p-4 glass hover:bg-white/20 transition-colors duration-300">
+            <li className="fade-up p-4 glass hover:bg-white/10 transition-colors duration-300">
               Analítica digital intermedia y avanzada
             </li>
-            <li className="fade-up p-4 glass hover:bg-white/20 transition-colors duration-300">
+            <li className="fade-up p-4 glass hover:bg-white/10 transition-colors duration-300">
               Aplicaciones prácticas, intermedias y avanzadas, de la inteligencia artificial en algún área de la mercadotecnia digital
             </li>
-            <li className="fade-up p-4 glass hover:bg-white/20 transition-colors duration-300">
+            <li className="fade-up p-4 glass hover:bg-white/10 transition-colors duration-300">
               Técnicas de organización y productividad personal
             </li>
           </ul>
@@ -182,8 +183,8 @@ const Index = () => {
       <Section className="bg-secondary">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-8 items-start">
-            <div className="text-left">
-              <h2 className="text-3xl font-bold mb-6 fade-up text-gradient">
+            <div>
+              <h2 className="text-3xl font-bold mb-6 fade-up bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">
                 ¿Te animas a impartir un curso?
               </h2>
               <p className="text-lg text-white/90 fade-up leading-relaxed">
@@ -191,7 +192,7 @@ const Index = () => {
                 para enviarnos tu propuesta.
               </p>
             </div>
-            <Card className="p-8 bg-white/10 backdrop-blur-md border-white/20 fade-up">
+            <Card className="p-8 bg-white/5 backdrop-blur-md border-white/10 fade-up">
               <TeacherForm />
             </Card>
           </div>
